@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: demo-api-slo-rules
+  labels:
+    app: demo-api
+spec:
+  groups:
+    - name: demo-api.slo
+      rules:
+        - alert: DemoApiHighP95Latency
+          expr: |
+            histogram_quantile(0.95,
+              sum(rate(http_request_duration_seconds_bucket{namespace="production",deployment="production"}[5m])) by (le)
+            ) > 2
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "High P95 latency for demo-api"
+            description: "P95 latency has been above 2s for 5 minutes."

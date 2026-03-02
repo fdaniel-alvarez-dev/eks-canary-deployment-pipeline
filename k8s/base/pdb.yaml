@@ -1,0 +1,13 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: app-production-pdb
+  labels:
+    app: demo-api
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: demo-api
+      deployment: production
+

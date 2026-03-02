@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: demo-api-canary-alerts
+  labels:
+    app: demo-api
+spec:
+  groups:
+    - name: demo-api.canary
+      rules:
+        - alert: DemoApiCanaryErrorRateHigh
+          expr: |
+            (
+              sum(rate(http_requests_total{deployment="canary",status=~"5.."}[2m]))
+              /
+              sum(rate(http_requests_total{deployment="canary"}[2m]))
+            ) > 0.01
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Canary error rate is too high"
+            description: "Canary is returning >1% 5xx responses for 2 minutes."
+

@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - serviceaccount.yaml
+  - deployment-production.yaml
+  - deployment-canary.yaml
+  - service.yaml
+  - ingress-stable.yaml
+  - ingress-canary.yaml
+  - hpa.yaml
+  - pdb.yaml
+

@@ -1,0 +1,36 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+.venv/
+venv/
+env/
+
+# Packaging
+dist/
+build/
+*.egg-info/
+
+# Docker
+*.log
+
+# K8s / tooling
+.kube/
+*.tmp
+
+# Windows zone identifiers (should never be committed)
+*:Zone.Identifier
+*.Identifier
+
