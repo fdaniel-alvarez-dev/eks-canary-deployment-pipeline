@@ -186,6 +186,6 @@ The default thresholds work for most API workloads, but you should tune them:
 
 **Freddy Alvarez** — I've deployed to production thousands of times over 22 years. The ones that went wrong taught me more than the ones that went right.
 
-- [LinkedIn](https://linkedin.com/in/falvarezpinto)
+- [LinkedIn](https://www.linkedin.com/in/freddy-daniel-alvarez/)
 - [Medium](https://medium.com/@falvarezpinto)
 - [Related repos](https://github.com/fdaniel-alvarez-dev)
